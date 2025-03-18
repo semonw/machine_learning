@@ -1,3 +1,5 @@
+# 参考文档https://blog.csdn.net/weixin_45954454/article/details/114455209
+#
 import tensorflow as tf
 import time
 
