@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import h5py
 
 ts = pd.Series(np.random.randn(1000), index=pd.date_range("1/1/2000", periods=1000))
 
@@ -14,7 +15,8 @@ plt.figure()
 df.plot()
 plt.legend(loc='best')
 
-
-#用pandas加载hdf5数据
-store = pd.HDFStore("mnist_weights.h5")
-print(store)
+with h5py.File('mnist_weights.h5', 'r') as file:
+    print(list(file.keys()))
+    for key in list(file.keys()):
+        print(f'{key}: data=>\n')
+        print(file[key])
